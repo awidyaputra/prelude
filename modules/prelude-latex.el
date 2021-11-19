@@ -60,16 +60,17 @@
 (setq TeX-PDF-mode t)
 
 ;; sensible defaults for macOS, other OSes should be covered out-of-the-box
-(when (eq system-type 'darwin)
-  (setq TeX-view-program-selection
-        '((output-dvi "DVI Viewer")
-          (output-pdf "PDF Viewer")
-          (output-html "HTML Viewer")))
+(setq TeX-view-program-selection
+      '((output-dvi "DVI Viewer")
+        (output-pdf "Evince")
+        (output-html "HTML Viewer")))
 
-  (setq TeX-view-program-list
-        '(("DVI Viewer" "open %o")
-          ("PDF Viewer" "open %o")
-          ("HTML Viewer" "open %o"))))
+(setq TeX-view-program-list
+      '(("DVI Viewer" "open %o")
+        ("mupdf" "mupdf %o")
+        ("Evince" "evince %o")
+        ("PDF Viewer" "open %o")
+        ("HTML Viewer" "open %o")))
 
 (defun prelude-latex-mode-defaults ()
   "Default Prelude hook for `LaTeX-mode'."

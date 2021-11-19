@@ -52,6 +52,17 @@
 
 (add-hook 'makefile-mode-hook (lambda ()
                                 (run-hooks 'prelude-makefile-mode-hook)))
+
+
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(remove-hook 'c++-mode-hook  #'smartparens-mode)
+(remove-hook 'c-mode-hook  #'smartparens-mode)
+
 (provide 'prelude-c)
 
 ;;; prelude-c.el ends here
